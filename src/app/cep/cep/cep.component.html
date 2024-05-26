@@ -1,0 +1,47 @@
+<div class="container mt-4">
+    <div class="row mb-3">
+        <label for="cep" class="col-sm-2 col-form-label">CEP:</label>
+        <div class="col-sm-10">
+            <div class="input-group"> 
+                <input type="text" id="cep" class="form-control" placeholder="Digite o CEP" #cep/>
+                <button class="btn btn-primary" type="button" (click)="buscarEndereco(cep.value)">Buscar</button>
+            </div>
+            @if (mensagemDeErro) {
+                <div class="text-danger mt-2">{{ mensagemDeErro }}</div>
+            }
+        </div>
+    </div>
+    @if (endereco && !carregando) {
+        <div class="mt-3">
+            <div class="row">
+                <div class="col-md-6 mt-2">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Informações do Endereço</h5>
+                            <p class="card-text"><strong>CEP:</strong> {{ endereco.cep }}</p>
+                            <p class="card-text"><strong>Logradouro:</strong> {{ endereco.logradouro }}</p>
+                            <p class="card-text"><strong>Complemento:</strong> {{ endereco.complemento }}</p>
+                            <p class="card-text"><strong>Bairro:</strong> {{ endereco.bairro }}</p>
+                            <p class="card-text"><strong>Localidade:</strong> {{ endereco.localidade }}</p>
+                            <p class="card-text"><strong>UF:</strong> {{ endereco.uf }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-2">
+                    <div class="card h-100"> 
+                        <div class="card-body">
+                            <h5 class="card-title">Outras Informações</h5>
+                            <p class="card-text"><strong>IBGE:</strong> {{ endereco.ibge }}</p>
+                            <p class="card-text"><strong>GIA:</strong> {{ endereco.gia }}</p>
+                            <p class="card-text"><strong>DDD:</strong> {{ endereco.ddd }}</p>
+                            <p class="card-text"><strong>SIAFI:</strong> {{ endereco.siafi }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @if (carregando) {
+        <div class="text-info mt-2">Buscando endereço...</div> 
+    }
+</div>
