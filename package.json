@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "gerar-app": "ionic build && ionic cap copy && ionic cap sync && ionic cap open android"
+
   },
   "private": true,
   "dependencies": {
